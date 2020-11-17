@@ -29,7 +29,7 @@ struct AudioDeviceUtils {
             return []
         }
 
-        var devids = [AudioDeviceID](repeating: 0, count: numDevices)
+        var devids = [AudioDeviceID](zeros: numDevices)
 
         result = 0
         devids.withUnsafeMutableBufferPointer { bufferPointer in

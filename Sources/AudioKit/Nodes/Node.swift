@@ -198,8 +198,8 @@ extension Tappable where Self: AudioUnitContainer {
     /// - Parameter sampleCount: Number of samples to retrieve
     /// - Returns: Float channel data for two channels
     public func getTapData(sampleCount: Int) -> FloatChannelData {
-        var leftData = [Float](repeating: 0, count: sampleCount)
-        var rightData = [Float](repeating: 0, count: sampleCount)
+        var leftData = [Float](zeros: sampleCount)
+        var rightData = [Float](zeros: sampleCount)
         var success = false
         leftData.withUnsafeMutableBufferPointer { leftPtr in
             rightData.withUnsafeMutableBufferPointer { rightPtr in

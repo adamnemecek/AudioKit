@@ -110,8 +110,8 @@ open class FFTTap: Toggleable {
         let inputCount = bufferSizePOT / 2
         let fftSetup = vDSP_create_fftsetup(log2n, Int32(kFFTRadix2))
 
-        var realp = [Float](repeating: 0, count: inputCount)
-        var imagp = [Float](repeating: 0, count: inputCount)
+        var realp = [Float](zeros: inputCount)
+        var imagp = [Float](zeros: inputCount)
 
         return realp.withUnsafeMutableBufferPointer { realPointer in
             imagp.withUnsafeMutableBufferPointer { imagPointer in
@@ -119,8 +119,8 @@ open class FFTTap: Toggleable {
                                              imagp: imagPointer.baseAddress!)
 
                 let windowSize = bufferSizePOT
-                var transferBuffer = [Float](repeating: 0, count: windowSize)
-                var window = [Float](repeating: 0, count: windowSize)
+                var transferBuffer = [Float](zeros: windowSize)
+                var window = [Float](zeros: windowSize)
 
                 // Hann windowing to reduce the frequency leakage
                 vDSP_hann_window(&window, vDSP_Length(windowSize), Int32(vDSP_HANN_NORM))

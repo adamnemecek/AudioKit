@@ -377,7 +377,7 @@ extension FormatConverter {
             return
         }
         let bufferByteSize: UInt32 = 32_768
-        var srcBuffer = [UInt8](repeating: 0, count: Int(bufferByteSize))
+        var srcBuffer = [UInt8](zeros: Int(bufferByteSize))
         var sourceFrameOffset: UInt32 = 0
 
         srcBuffer.withUnsafeMutableBytes { ptr in

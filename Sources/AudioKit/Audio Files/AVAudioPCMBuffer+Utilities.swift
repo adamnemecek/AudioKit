@@ -23,7 +23,7 @@ extension AVAudioPCMBuffer {
             }
         }
 
-        var digest = [md5_byte_t](repeating: 0, count: 16)
+        var digest = [md5_byte_t](zeros: 16)
         var digestHex = ""
 
         digest.withUnsafeMutableBufferPointer { digestPtr in
